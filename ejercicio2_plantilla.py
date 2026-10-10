@@ -2,7 +2,12 @@
 
 def clasificar_existencia(cantidad):
     # TODO A1: retornar la clasificación correspondiente.
-    return "Clasificación pendiente"
+    if cantidad == 0:
+        return "Agotado"
+    elif cantidad < 5:
+        return "Existencia baja"
+    else:
+        return "Existencia suficiente"
 
 
 def mostrar_inventario(existencias):
@@ -10,8 +15,9 @@ def mostrar_inventario(existencias):
 
     # TODO A2:
     # Mostrar número de producto, cantidad y clasificación.
-
-    print(existencias)
+    for i, cantidad in enumerate(existencias):
+        clasificacion = clasificar_existencia(cantidad)
+        print(f"Producto {i + 1}: {cantidad} unidades - {clasificacion}")
 
 
 # SECCIÓN B: validación de entradas
@@ -36,12 +42,16 @@ def retirar_unidades(disponible, cantidad):
     # TODO C1:
     # Si no hay unidades suficientes, informar y retornar disponible.
     # Si hay suficientes, retornar disponible - cantidad.
-    return disponible
+    if disponible >= cantidad:
+        return disponible - cantidad
+    else:
+        print("Error: no hay unidades suficientes.")
+        return disponible
 
 
 def reponer_unidades(disponible, cantidad):
     # TODO C2: retornar disponible + cantidad.
-    return disponible
+    return disponible + cantidad
 
 
 # SECCIÓN D: programa principal
