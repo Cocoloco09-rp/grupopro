@@ -1,0 +1,42 @@
+ENTRADA
+1.Paginas por paquete
+2.Tipo de texto ingresado por el usuario el cual debe convertirse a numero entero
+
+SALIDAS
+1.Cantidad de paquetes esperados
+2.Total de paginas
+3.Subtotal
+4.Descuento
+5.Total a pagar
+6.sSi no se acepto ningun paquet, indicar que no se genero un pedido
+7.Muestra importes iguales a cero
+
+RESTRICCIONES
+Explicitas
+1.Cada paquete puede contener entre 1 yb 50 paginas 
+2.Si el total de paginas aceptados supera 100, se aplica descuento sobre el Subtotal
+3.Con exactamente 100 paginas no se aplica descuento
+4.Se permiteun solo intento por paquete
+5.Si la entrada no puede convertirse a entero o esta fuera del rango, omite el paquete y continua con el siguiente
+6.El paquete omitido no se incluye en los calculos
+
+Implicitas
+1.Los valores no pueden ser negativos
+2.El total de paginas no puede ser menor a cero ni mayor a 150
+
+AMBIGUEDADES
+no se identifican ambiguedades en el problema
+
+PRECONDICIONES
+1.Se permite un solo intento por paquete
+
+POSTCONDICIONES
+1.Muestra la cantidad de paquetes aceptados, total de paginas, subtotal, descuento y total a pagar
+2.Si no se acepto ningun paquete, indica que no se genero un pedido y muestra importes iguales a cero
+
+CALCULAR VALOR_SUBTOTAL
+PRECONDICIONES
+1.El total de paginas debe ser un numero entero no negativos
+
+POSTCONDICIONES
+1.Devuelve un numero real representando el valor monetario base, calculado como total_paginas*2

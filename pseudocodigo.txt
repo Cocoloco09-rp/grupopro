@@ -1,0 +1,57 @@
+Funcion subtotal <- calcular_subtotal(paginas)
+        subtotal <- paginas * 2
+    FinFuncion
+
+    Definir paquetes_aceptados, total_paginas, i, paginas Como Entero
+    Definir subtotal, descuento, total_a_pagar Como Real
+    Definir entrada_texto Como Cadena
+
+    paquetes_aceptados <- 0
+    total_paginas <- 0
+
+    // Recorrido de los 3 paquetes
+    Para i <- 1 Hasta 3 Hacer
+        Escribir "Ingrese páginas del paquete ", i, ":"
+        Leer entrada_texto
+
+        Si EsEnteroValido(entrada_texto) Entonces
+            paginas <- ConvertirAEntero(entrada_texto)
+            Si paginas >= 1 Y paginas <= 50 Entonces
+                paquetes_aceptados <- paquetes_aceptados + 1
+                total_paginas <- total_paginas + paginas
+            Sino
+                Escribir "Páginas fuera de rango (1-50). Paquete omitido."
+            FinSi
+        Sino
+            Escribir "Entrada no válida. Paquete omitido."
+        FinSi
+    FinPara
+
+    // Procesamiento y Reporte
+    Si paquetes_aceptados > 0 Entonces
+        subtotal <- calcular_subtotal(total_paginas)
+        
+        Si total_paginas > 100 Entonces
+            descuento <- subtotal * 0.10
+        Sino
+            descuento <- 0.0
+        FinSi
+        
+        total_a_pagar <- subtotal - descuento
+
+        Escribir "Paquetes aceptados: ", paquetes_aceptados
+        Escribir "Total de páginas: ", total_paginas
+        Escribir "Subtotal: ", subtotal
+        Escribir "Descuento: ", descuento
+        Escribir "Total a pagar: ", total_a_pagar
+    Sino
+        Escribir "No se generó un pedido."
+        Escribir "Paquetes aceptados: 0"
+        Escribir "Total de páginas: 0"
+        Escribir "Subtotal: 0"
+        Escribir "Descuento: 0"
+        Escribir "Total a pagar: 0"
+    FinSi
+
+FinAlgoritmo
+
